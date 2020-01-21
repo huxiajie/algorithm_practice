@@ -4,22 +4,51 @@ number 1
 '''
 
 
+# 定义节点类
 class Node():
-    def __init__(self, val):
+    def __init__(self, val=None, next=None):
         self.val = val
-        self.next = None
+        self.next = next
 
 
 class LinkedList():
-    # 初始化，头结点为空
+    # 初始化，创建空链表
     def __init__(self):
-        self.head = Node(None)
-        self.end = self.head
+        self.head = Node()
 
-    # 添加节点
-    def add(self, data):
-        self.end.next = Node(data)
-        self.end = self.end.next
+    # 删除链表
+    def del_list(self):
+        self.head.next = None
+
+    # 按元素定位:满足条件的第一个节点
+    def locate_by_element(self, val):
+        p = self.head
+        while p.next:
+            p = p.next
+            if p.val == val:
+                return p
+        return None
+
+    def insert_head(self, node):
+        node.next = self.head.next
+        self.head.next = node
+        # temp = self.head.next
+        # temp.next = self.head.next
+        # self.head.next = node
+
+    def insert_end(self, node):
+        end = self.head
+        while end.next:
+            end = end.next
+        end.next = node
+
+    def del_head(self):
+        self.head.next = self.head.next.next
+
+    # 是否是空表
+    def is_empty(self):
+        # todo: if self.head.next
+        pass
 
 
 '''
@@ -28,36 +57,67 @@ number 2
 '''
 
 linked_list_test = LinkedList()
+for i in range(10):
+    linked_list_test.insert_end(Node(i))
 
 
-# linked_list_test.add(1)
-# linked_list_test.add(2)
-# linked_list_test.add(3)
-# linked_list_test.add(4)
-# linked_list_test.add(5)
-
-
+# 法1：获得正序list，倒序访问list
 def show_from_end_to_head1(linked_list):
-    # 正序输出，反转arraylist
     temp = linked_list.head.next
     res = []
     res_reserve = []
     while temp:
         res.append(temp.val)
         temp = temp.next
-    print(res)
+    # print(res)
+    # range(a,b) => [a,b)
     for i in range(len(res) - 1, -1, -1):
         res_reserve.append(res[i])
-    print(res_reserve)
+    # print(res_reserve)
     return res_reserve
 
 
+# 法2：正序访问链表，倒序插入arraylist(倒序插入比较慢)
 def show_from_end_to_head2(linked_list):
-    # 正序访问链表，倒序插入arraylist
     temp = linked_list.head.next
     res_reserve = []
     while temp:
         res_reserve.insert(0, temp.val)
         temp = temp.next
-    print(res_reserve)
+    # print(res_reserve)
     return res_reserve
+
+
+'''
+number 3
+链表原地反转
+'''
+# 迭代反转
+def reverse_linkedlist1(linkedlist):
+    # 最少有两个节点
+    if not linkedlist.head.next.next:
+        return linkedlist
+    p, pre = linkedlist.head.next
+    while p:
+        pre = p
+        p = p.next
+        p.next = pre
+    linkedlist.head.next.next = None
+    linkedlist.head = pre
+    return linkedlist
+# 递归反转
+def reverse_linkedlist2():
+    pass
+
+'''
+number 4
+链表排序
+'''
+
+'''
+number 5
+约瑟夫（Josephus）问题
+'''
+
+if __name__ == "__main__":
+    show_from_end_to_head1(linked_list_test)

@@ -43,12 +43,7 @@ class LinkedList():
         end.next = node
 
     def del_head(self):
-        self.head.next = self.head.next.next
-
-    # 是否是空表
-    def is_empty(self):
-        # todo: if self.head.next
-        pass
+        self.head.next = self.head.next.next1
 
 
 '''

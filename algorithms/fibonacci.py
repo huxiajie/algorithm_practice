@@ -1,3 +1,8 @@
+'''
+fibonacci数列问题
+'''
+
+
 # 递归法 O(2^n)
 def fib_recursion(n):
     if n < 0:
@@ -6,6 +11,7 @@ def fib_recursion(n):
         return 1
     else:
         return fib_recursion(n - 1) + fib_recursion(n - 2)
+
 
 # 递推法 O(n)
 def fib_derivation(n):

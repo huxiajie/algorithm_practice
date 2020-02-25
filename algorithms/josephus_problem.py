@@ -46,10 +46,8 @@ def josephus2(n, k, m):
     out_list.append(out_person_prev.val)
     return out_list
 
-
-if __name__ == "__main__":
-    n = 9
-    k = 1
-    m = 5
-    print("1", josephus1(n, k, m))
-    print("2", josephus2(n, k, m))
+n = 9
+k = 1
+m = 5
+print("1", josephus1(n, k, m))
+print("2", josephus2(n, k, m))

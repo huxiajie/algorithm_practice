@@ -47,7 +47,3 @@ def regex():
         print("match.start(): ", match1_1.start(), "\nmatch.end(): ", match1_1.end())
         # 元组方式返回（开始index, 结束index+1）
         print("match.span(): ", match1_1.span())
-
-
-if __name__ == "__main__":
-    regex()

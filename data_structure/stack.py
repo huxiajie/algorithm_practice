@@ -1,16 +1,15 @@
 '''
 number 1
-实现栈: python-list动态顺序表支持栈;用链表实现栈；
+实现栈: python-list动态顺序表支持栈;动态：可自动扩容
+       用链表实现栈；
 '''
 from data_structure.linkedlist import Node
 
 
 class StackPythonList():
-    def __init__(self, element_list=None, length=0):
+    def __init__(self, element_list=None):
         if element_list:
             self.stack = element_list
-        elif length != 0:
-            self.stack = [None] * length
         else:
             self.stack = []
 
@@ -32,14 +31,11 @@ class StackPythonList():
 
 
 class StackLinkedList():
-    def __init__(self, element_list=None, length=0):
+    def __init__(self, element_list=None):
         self.head = None
         if element_list:
             for ele in element_list:
                 self.push(ele)
-        elif length != 0:
-            for i in range(length):
-                self.push(None)
 
     def push(self, element):
         element = Node(val=element)

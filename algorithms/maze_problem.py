@@ -3,23 +3,27 @@ from data_structure.qqueue import QueuePythonList
 
 maze = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         [1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1],
-        [1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1],
-        [1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1],
+        [1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1],
-        [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+        [1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1],
         [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1],
         [1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1],
         [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1],
-        [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1],
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
-# 右 下 左 上
+
+# 右 下 左 上 clever step
+# 如何去表示neighbors,以及如何确定neighbor之间是否passable
 directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
 '''
 number 1
 找出一条路径即可
 '''
+
+
 # 法1：递归法（使用系统栈）深度优先
 # 时间复杂度？？？？
 # 直到走到出口, 返回True, 然后一路向上返回True
@@ -44,8 +48,9 @@ def solution1(start_pos, end_pos, maze):
 def solution2(start_pos, end_pos, maze):
     path = StackPythonList()
     path.push((start_pos, 0))
-    current_pos = path.read_top_element()
-    while not path.is_empty() and current_pos[0] != end_pos:
+    if start_pos == end_pos:
+        return path.stack
+    while not path.is_empty():
         current_pos = path.pop()
         maze[current_pos[0][0]][current_pos[0][1]] = 2
         for dir in range(current_pos[1], 4):
@@ -59,9 +64,25 @@ def solution2(start_pos, end_pos, maze):
                 break
     return False
 
+
 # 法3：使用队列 宽度优先
+# 无法记录具体路径 只有false or true
 def solution3(start_pos, end_pos, maze):
-    pass
+    path = QueuePythonList()
+    path.enqueue(start_pos)
+    if start_pos == end_pos:
+        return True
+    while not path.is_empty():
+        current_pos = path.dequeue()
+        maze[current_pos[0]][current_pos[1]] = 2
+        for dir in directions:
+            i = current_pos[0] + dir[0]
+            j = current_pos[1] + dir[1]
+            if i >= 0 and i < len(maze) and j >= 0 and j < len(maze[0]) and maze[i][j] == 0:
+                path.enqueue((i, j))
+                if (i, j) == end_pos:
+                    return True
+    return False
 
 
-print(solution2(start_pos=(1, 1), end_pos=(10, 12), maze=maze))
+print(solution3(start_pos=(1, 1), end_pos=(10, 12), maze=maze))

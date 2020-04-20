@@ -5,7 +5,6 @@
 相似问题经常出现在商业、组合数学，计算复杂性理论、密码学和应用数学等领域中。
 也可以将背包问题描述为决定性问题，即在总重量不超过W 的前提下，总价值是否能达到V ？它是在1978年由Merkle和Hellman提出的。
 '''
-from data_structure.stack import StackPythonList
 import random
 
 

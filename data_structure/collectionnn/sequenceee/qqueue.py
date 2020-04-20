@@ -2,7 +2,7 @@
 number 1
 实现队列: python-list实现队列;用链表实现队列；
 '''
-from data_structure.linkedlist import Node
+from data_structure.collectionnn.sequenceee.linkedlist import Node
 
 
 # 法1：enqueue使用append,O(1);出队使用pop(0),O(n)

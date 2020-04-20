@@ -1,5 +1,5 @@
-from data_structure.stack import StackPythonList
-from data_structure.qqueue import QueuePythonList
+from data_structure.collectionnn.sequenceee.stack import StackPythonList
+from data_structure.collectionnn.sequenceee.qqueue import QueuePythonList
 
 maze = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         [1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1],

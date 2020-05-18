@@ -3,7 +3,7 @@ number 1
 实现栈: python-list动态顺序表支持栈;动态：可自动扩容
        用链表实现栈；
 '''
-from data_structure.collectionnn.sequenceee.linkedlist import Node
+from data_structure.linkedlist import Node
 
 
 class StackPythonList():

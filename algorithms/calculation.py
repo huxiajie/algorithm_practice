@@ -4,7 +4,7 @@ number 1
 括号包括[] {} ()
 根据问题确定数据结构是关键
 '''
-from data_structure.collectionnn.sequenceee.stack import StackPythonList
+from data_structure.stack import StackPythonList
 
 
 def bracket_matching(string):

@@ -5,7 +5,7 @@ number 1
 然后从下一个人开始继续报数并按照同样的规则退出，直至所有人都退出。
 按照顺序输出 退出的人 的编号
 '''
-from data_structure.collectionnn.sequenceee.linkedlist import Linkedlist, Node
+from data_structure.linkedlist import Linkedlist, Node
 
 
 # 基于list求解 O(n)

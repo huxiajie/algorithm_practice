@@ -120,13 +120,12 @@ def merge_sort(arr, left, right):
 
 # 快速排序
 def quick_sort(arr, left, right):
-    pass
-
-
-def quick_sort(arr, left, right):
     if left >= right:
         return
-
+    # mid = (left + right) // 2
+    # pivot_list = [arr[left], arr[mid], arr[right]]
+    # pivot_list.sort()
+    # arr[left], arr[mid], arr[right] = pivot_list[0], pivot_list[1], pivot_list[2]
     i, j = left - 1, right + 1
     pivot = arr[(left + right) // 2]
     # pivot_index = random.randint(left, right + 1)
@@ -144,19 +143,16 @@ def quick_sort(arr, left, right):
     quick_sort(arr, j + 1, right)
 
 
-# 桶排序
-def bucket_sort(arr):
-    pass
-
-
 arr = [3, 44, 38, 5, 47, 15, 26, 27, 25, 2, 46, 4, 19, 50, 18, 44]
-arr = [3, 44, 38, 5, 46, 4, 19, 50, 18, 44]
-arr = [0, 1, 8, 9, 3, 4, 6, 28, 29, 210, 211, 212, 213]
-arr = [ 28, 29, 210, 211, 212, 213,0, 1, 8, 9, 3, 4, 6]
-arr = [25, 1, 8, 9, 3, 4, 25, 28, 29, 210, 211, 212, 25]
-arr = [25, 25, 8, 9, 25, 4, 25, 28, 29, 25, 211, 212, 25]
+# arr = [3, 44, 38, 5, 46, 4, 19, 50, 18, 44]
+# arr = [0, 1, 8, 9, 3, 4, 6, 28, 29, 210, 211, 212, 213]
+# arr = [28, 29, 210, 211, 212, 213, 0, 1, 8, 9, 3, 4, 6]
+# arr = [25, 1, 8, 9, 3, 4, 25, 28, 29, 210, 211, 212, 25]
+# arr = [25, 25, 8, 9, 25, 4, 25, 28, 29, 25, 211, 212, 25]
 # arr = [1, 2, 4, 4, 4]
 # bubble_sort2(arr)
+# bubble_sort1(arr)
+# bubble_sort(arr)
 # selection_sort(arr)
 # insertion_sort1(arr)
 # merge_sort(arr, 0, len(arr) - 1)

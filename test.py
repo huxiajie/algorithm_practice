@@ -1,3 +1,5 @@
-if __name__=="__main__":
-    c = [i + 1 for i in [1, 2, 3, 4, 5]]
-    print(c)
+import sys
+
+l1 = [1, 2]
+l2 = [3, 4]
+print(l2+l1+[])
